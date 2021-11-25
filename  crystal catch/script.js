@@ -1,3 +1,5 @@
+// cirkel dat beweegt door middel van pijltjes //
+
 let circle = document.querySelector('.circle');
 let moveBy = 10; 
 
