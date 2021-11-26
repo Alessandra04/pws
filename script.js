@@ -87,7 +87,38 @@ function setup() {
   createCanvas(1280, 720);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
+  background(61, 58, 57);
+  
+  // halvce cirkel mijn
+  fill(107, 99, 96);
+  ellipse(640, 700, 1200, 1200);
+
+  //brokstukken in mijn
+  fill(36, 34, 33)
+  rect(50, 50, 20, 20);
+  rect(70, 90, 20, 20);
+  rect(100, 40, 20, 20);
+  rect(150, 300, 20, 20);
+  rect(130, 250, 20, 20);
+  rect(800, 20, 20, 20);
+  rect(900, 70, 20, 20);
+  rect(600, 40, 20, 20);
+  rect(1000, 110, 20, 20);
+  rect(1200, 40, 20, 20);
+  rect(400, 10, 20, 20);
+  rect(300, 120, 20, 20);
+  rect(1180, 400, 20, 20);
+  rect(1200, 280, 20, 20);
+
+  //ondergrond
+  fill(43, 22, 7);
+  rect(0, 700, 1400, 30)
+
+
+
+
+  
+
 }
 
 /**
