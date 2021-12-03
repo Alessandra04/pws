@@ -17,6 +17,14 @@ var spelStatus = SPELEN;
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 
+var imgadventurine;
+function preload() {
+  imgadventurine = loadImage('images.kristallen/adventurine.png');
+}
+
+
+
+
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -32,6 +40,7 @@ var beweegAlles = function () {
   // speler
 
 };
+
 
 /**
  * Checkt botsingen
@@ -86,6 +95,7 @@ function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
 
+
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background(61, 58, 57);
   
@@ -114,7 +124,10 @@ function setup() {
   fill(43, 22, 7);
   rect(0, 700, 1400, 30)
 
-
+  //afbeeldingen
+  image(imgadventurine, 600, 100, 80, 80);
+  
+  
 
 
   
