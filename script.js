@@ -120,7 +120,6 @@ function setup() {
   rect(900, 70, 20, 20);
   rect(600, 40, 20, 20);
   rect(1000, 110, 20, 20);
-  rect(1200, 40, 20, 20);
   rect(400, 10, 20, 20);
   rect(300, 120, 20, 20);
   rect(1180, 400, 20, 20);
@@ -138,6 +137,11 @@ function setup() {
   image(imglapislazuli, 550, 100, 80, 80);
   image(imgrosequartz, 550, 150, 80, 80);
   image(imgbom, 500, 100, 80, 80);
+
+  //hokje voor teller
+  fill('grey');
+  rect(1180, 30, 70, 70);
+
   
   
 
