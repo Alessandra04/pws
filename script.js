@@ -20,6 +20,12 @@ var spelerY = 600; // y-positie van speler
 var imgadventurine;
 function preload() {
   imgadventurine = loadImage('images.kristallen/adventurine.png');
+  imgamethyst = loadImage('images.kristallen/amethyst.png');
+  imgfluorite = loadImage('images.kristallen/fluorite.png');
+  imggemstone = loadImage('images.kristallen/gemstone.png');
+  imglapislazuli = loadImage('images.kristallen/lapislazuli.png');
+  imgrosequartz = loadImage('images.kristallen/rosequartz.png');
+  imgbom = loadImage('images.kristallen/bomb.png');
 }
 
 
@@ -126,6 +132,12 @@ function setup() {
 
   //afbeeldingen
   image(imgadventurine, 600, 100, 80, 80);
+  image(imgamethyst, 600, 150, 60, 60);
+  image(imgfluorite, 650, 100, 80, 80);
+  image(imggemstone, 650, 150, 70, 70);
+  image(imglapislazuli, 550, 100, 80, 80);
+  image(imgrosequartz, 550, 150, 80, 80);
+  image(imgbom, 500, 100, 80, 80);
   
   
 
