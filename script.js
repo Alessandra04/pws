@@ -142,7 +142,11 @@ function setup() {
   fill('grey');
   rect(1180, 30, 70, 70);
 
-  
+  //tekst game (crystal catcher)
+  fill(225, 230, 96);
+  textSize(40);
+  textFont('courier');
+  text('Crystal Catcher', 470, 40);
   
 
 
