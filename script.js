@@ -16,6 +16,16 @@ var spelStatus = SPELEN;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
+var randomVijandPlaats = 0;
+var vijandX = -600;
+var vijandY = 20 + randomVijandPlaats;
+
+var score = 0; // aantal behaalde score 
+var speed = 0;
+
+var vijandSpawned = false;
+var tijdGameOver = 0;
+var tijdVijandGeraakt = 0;
 
 var imgadventurine;
 function preload() {
@@ -40,8 +50,43 @@ function preload() {
  */
 var beweegAlles = function () {
   // vijand
-
-  // kogel
+  var beweegVijand = function() {
+    if(playMusic){
+    music.play();}
+    if(score > 5){
+        vijandSpeed = 20;
+    }
+    if(score >  10){
+        vijandSpeed = 25;
+        vijandRespawn =3;
+    }
+    if(vijandSpawned ) {
+        vijandX = vijandX + vijandSpeed;
+   
+  
+    }
+    if(score > 24){
+        vijandSpeed = 29;
+        vijandRespawn = 2;
+    }
+    if(score == 29){
+       speedUp.play();
+        vijandSpeed = 33;
+        speed = 30;
+    }
+    if(score > 32){
+        vijandRespawn = 1;
+    }
+    if(score > 40){
+        vijandRespawn = 0;
+    }
+    if(score > 60){
+        vijandSpeed = 40;
+    }
+    if(score > 100){
+        vijandSpeed = 50;
+    }
+};
 
   // speler
 
@@ -65,8 +110,20 @@ var verwerkBotsing = function () {
  */
 var tekenAlles = function () {
   // achtergrond
+  text ("score = " + score , 30, 110); // score tekenen 
+
 
   // vijand
+  var tekenVijand = function(x, y) {
+    if(vijandGeraakt == false && round(millis()/600) - tijdVijandGeraakt > vijandRespawn ){
+  fill("black");
+  image (imgbom, 500, 100, 80, 80);
+  vijandSpawned = true;
+  randomVijandPlaats = Math.floor(Math.random() * 600);
+    }else{
+        vijandSpawned = false;
+    }
+};
 
   // kogel
 
