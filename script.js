@@ -16,9 +16,12 @@ var spelStatus = SPELEN;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
+
 var randomVijandPlaats = 0;
 var vijandX = -600;
 var vijandY = 20 + randomVijandPlaats;
+var vijandSpeed = 15;
+var vijandRespawn = 5;
 
 var score = 0; // aantal behaalde score 
 var speed = 0;
@@ -51,8 +54,7 @@ function preload() {
 var beweegAlles = function () {
   // vijand
   var beweegVijand = function() {
-    if(playMusic){
-    music.play();}
+  
     if(score > 5){
         vijandSpeed = 20;
     }
