@@ -30,7 +30,7 @@ var vijandSpawned = false;
 var tijdGameOver = 0;
 var tijdVijandGeraakt = 0;
 
-var imgadventurine;
+
 function preload() {
   imgadventurine = loadImage('images.kristallen/adventurine.png');
   imgamethyst = loadImage('images.kristallen/amethyst.png');
