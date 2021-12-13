@@ -17,18 +17,19 @@ var spelStatus = SPELEN;
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 
-var randomVijandPlaats = 0;
-var vijandX = -600;
-var vijandY = 20 + randomVijandPlaats;
-var vijandSpeed = 15;
-var vijandRespawn = 5;
+var randombomPlaats = 0;
+var bomX = -600;
+var bomY = 20 + randomVijandPlaats;
+var bomSpeed = 15;
+var bomRespawn = 5;
+var bomGevangen = false;
 
 var score = 0; // aantal behaalde score 
 var speed = 0;
 
-var vijandSpawned = false;
+var bomSpawned = false;
 var tijdGameOver = 0;
-var tijdVijandGeraakt = 0;
+var tijdBomGevangen = 0;
 
 
 function preload() {
@@ -53,40 +54,38 @@ function preload() {
  */
 var beweegAlles = function () {
   // vijand
-  var beweegVijand = function() {
+  var beweegBom = function() {
   
     if(score > 5){
-        vijandSpeed = 20;
+       bomSpeed = 20;
     }
     if(score >  10){
-        vijandSpeed = 25;
-        vijandRespawn =3;
+        bomSpeed = 25;
+        bomRespawn =3;
     }
-    if(vijandSpawned ) {
-        vijandX = vijandX + vijandSpeed;
+    if(bomSpawned ) {
+        bomX = bomX + bomSpeed;
    
   
     }
     if(score > 24){
-        vijandSpeed = 29;
-        vijandRespawn = 2;
+        bomSpeed = 29;
+        bomSpawn = 2;
     }
     if(score == 29){
-       speedUp.play();
-        vijandSpeed = 33;
-        speed = 30;
+        bomSpeed = 33;
     }
     if(score > 32){
-        vijandRespawn = 1;
+        bomRespawn = 1;
     }
     if(score > 40){
-        vijandRespawn = 0;
+        bomRespawn = 0;
     }
     if(score > 60){
-        vijandSpeed = 40;
+        bomSpeed = 40;
     }
     if(score > 100){
-        vijandSpeed = 50;
+        bomSpeed = 50;
     }
 };
 
@@ -116,14 +115,14 @@ var tekenAlles = function () {
 
 
   // vijand
-  var tekenVijand = function(x, y) {
-    if(vijandGeraakt == false && round(millis()/600) - tijdVijandGeraakt > vijandRespawn ){
+  var tekenBom = function(x, y) {
+    if(bomGeraakt == false && round(millis()/600) - tijdBomGevangen > bomRespawn ){
   fill("black");
   image (imgbom, 500, 100, 80, 80);
-  vijandSpawned = true;
-  randomVijandPlaats = Math.floor(Math.random() * 600);
+  bomSpawned = true;
+  randomBomPlaats = Math.floor(Math.random() * 600);
     }else{
-        vijandSpawned = false;
+        bomSpawned = false;
     }
 };
 
@@ -223,6 +222,15 @@ function draw() {
     beweegAlles();
     verwerkBotsing();
     tekenAlles();
+
+    if (checkBomGevangen()) {
+      // punten erbij
+      // nieuwe vijand maken
+      score = score + 1;
+      score = score + 0;
+      bomY = Math.floor(Math.random() * 450);
+
+
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
     }
